@@ -4,9 +4,9 @@ Visual proof of the full ELK stack running and ingesting logs.
 
 ---
 
-## Kibana — Live Log Discovery
+## Kibana Welcome Page
 ![Kibana Discover](kibana-discover.png)
-> Kibana Discover showing 3,366 hits — real-time log events flowing from Filebeat through Logstash into Elasticsearch. Index pattern: `filebeat-*`.
+> Kibana home page — confirming successful connection to Elasticsearch at port 5601.
 
 ---
 
@@ -34,9 +34,9 @@ Visual proof of the full ELK stack running and ingesting logs.
 
 ---
 
-## Filebeat — Running
+## Log Events
 ![Filebeat Running](filebeat-running.png)
-> `systemctl status filebeat` — active (running). Shipping logs every 30 seconds (monitoring heartbeat visible in logs).
+> Kibana Discover showing 3,366 hits — real-time log events flowing from Filebeat through Logstash into Elasticsearch. Index pattern: `filebeat-*`.
 
 ---
 
