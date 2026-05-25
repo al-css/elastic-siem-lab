@@ -44,7 +44,7 @@ This lab simulates a real SOC analyst environment. It ingests system logs, parse
 
 ## What It Does
 
-- **Ingests** system and auth logs from the Ubuntu VM in real time
+- **Collects** system and auth logs from the Ubuntu VM in real time
 - **Parses** raw log data through a Logstash pipeline into structured JSON
 - **Indexes** events into Elasticsearch with daily rolling indices (`logs-YYYY.MM.dd`)
 - **Visualizes** events in Kibana Discover — queryable, filterable, searchable
