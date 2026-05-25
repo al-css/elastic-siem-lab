@@ -106,6 +106,6 @@ Built for **Intrusion Testing & Security Assessment** and **Communication & Netw
 
 ## Author
 
-**[Your Name]**  
+**Ayman Al Labade**  
 Cybersecurity Student  
-[LinkedIn](https://linkedin.com) | [GitHub](https://github.com)
+[LinkedIn](www.linkedin.com/in/ayman-al-labade) | [GitHub](https://github.com/al-css)
