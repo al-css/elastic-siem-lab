@@ -10,7 +10,7 @@ This lab simulates a real SOC analyst environment. It ingests system logs, parse
 
 ## Preview
 
-![Kibana Discover — live logs](screenshots/kibana-discover.png)
+![Kibana Discover — live logs](screenshots/filebeat-running.png)
 > Kibana Discover showing 3,366 live log events ingested from the Ubuntu host.
 
 ---
