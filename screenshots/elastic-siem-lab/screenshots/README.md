@@ -34,7 +34,7 @@ Visual proof of the full ELK stack running and ingesting logs.
 
 ---
 
-## Filebeat — Running
+## Log Events
 ![Filebeat Running](filebeat-running.png)
 > Kibana Discover showing 3,366 hits — real-time log events flowing from Filebeat through Logstash into Elasticsearch. Index pattern: `filebeat-*`.
 
