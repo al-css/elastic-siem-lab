@@ -12,13 +12,13 @@ This lab simulates a real SOC analyst environment. It ingests system logs, parse
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                  Ubuntu VM (VMware)                  │
+│                  Ubuntu VM (VMware)                 │
 │                                                     │
 │  ┌──────────┐    ┌──────────┐    ┌───────────────┐  │
-│  │ Filebeat │───▶│ Logstash │───▶│ Elasticsearch │  │
+│  │ Filebeat │───▶│ Logstash │───▶│ Elasticsearch│  │
 │  │ (agent)  │    │(pipeline)│    │  (data store) │  │
 │  └──────────┘    └──────────┘    └───────┬───────┘  │
-│                                          │           │
+│                                          │          │
 │                                   ┌──────▼──────┐   │
 │                                   │   Kibana    │   │
 │                                   │  (UI :5601) │   │
