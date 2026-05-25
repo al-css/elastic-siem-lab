@@ -1,0 +1,11 @@
+# Elasticsearch Configuration (relevant settings only)
+# Full file: /etc/elasticsearch/elasticsearch.yml
+
+# Allow access from host machine and other VMs on the network
+network.host: 0.0.0.0
+
+# Cluster name (optional, helps identify in logs)
+cluster.name: siem-lab
+
+# Node name (optional)
+node.name: siem-node-1
