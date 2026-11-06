@@ -1,11 +1,20 @@
-# Kibana Configuration (relevant settings only)
+# Kibana configuration (relevant settings only)
 # Full file: /etc/kibana/kibana.yml
 
-# Allow access from host machine's browser
+# Listen on all interfaces so the host machine's browser can reach
+# Kibana. Restrict who can connect with UFW (see docs/INSTALL.md, Step 3).
+# Safer option: set "localhost" here and use an SSH tunnel instead:
+#   ssh -L 5601:localhost:5601 <user>@<vm-ip>   then browse http://localhost:5601
 server.host: "0.0.0.0"
-
-# Point Kibana at the local Elasticsearch instance
-elasticsearch.hosts: ["http://localhost:9200"]
-
-# Optional: name shown in the Kibana UI
 server.name: "siem-lab-kibana"
+
+# Local Elasticsearch, logging in as the built-in kibana_system user
+elasticsearch.hosts: ["http://localhost:9200"]
+elasticsearch.username: "kibana_system"
+
+# The password is NOT stored in this file. It lives in the Kibana keystore:
+#   sudo /usr/share/kibana/bin/kibana-keystore add elasticsearch.password
+#
+# Needed later for detection rules and alerting (also in the keystore):
+#   sudo /usr/share/kibana/bin/kibana-encryption-keys generate
+#   sudo /usr/share/kibana/bin/kibana-keystore add xpack.encryptedSavedObjects.encryptionKey

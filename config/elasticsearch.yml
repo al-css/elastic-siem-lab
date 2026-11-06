@@ -1,11 +1,23 @@
-# Elasticsearch Configuration (relevant settings only)
+# Elasticsearch configuration (relevant settings only)
 # Full file: /etc/elasticsearch/elasticsearch.yml
+#
+# Hardened lab version. Kibana and Logstash run on the same VM, so
+# Elasticsearch only needs to listen on localhost.
 
-# Allow access from host machine and other VMs on the network
-network.host: 0.0.0.0
-
-# Cluster name (optional, helps identify in logs)
 cluster.name: siem-lab
-
-# Node name (optional)
 node.name: siem-node-1
+
+# Listen on localhost only.
+# The first build used 0.0.0.0, which put port 9200 (with no login) on
+# every device that could reach the VM, including the home network when
+# the VM is bridged. Anyone there could read or delete the indices.
+network.host: 127.0.0.1
+http.port: 9200
+
+# One-node lab: no cluster discovery needed
+discovery.type: single-node
+
+# Require a username and password for every request (free in the Basic
+# license). After restarting, set the built-in passwords:
+#   sudo /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
+xpack.security.enabled: true

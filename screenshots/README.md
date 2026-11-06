@@ -1,51 +1,51 @@
 # Screenshots — Elastic SIEM Lab
 
-Visual proof of the full ELK stack running and ingesting logs.
+The ELK stack running and ingesting logs on the Ubuntu VM.
 
 ---
 
-## Kibana Welcome Page
+## Kibana home page
+![Kibana home](kibana-home.png)
+> Kibana loaded and connected to Elasticsearch on port 5601.
+
+---
+
+## Elasticsearch — running
+![Elasticsearch running](elasticsearch-running.png)
+> `systemctl status elasticsearch` — active (running), enabled on boot, using about 2.9 GB RAM.
+
+---
+
+## Elasticsearch — indices
+![Elasticsearch indices](elasticsearch-indices.png)
+> `curl localhost:9200/_cat/indices?v` — the `filebeat-7.17.29-*` index holds 11,721 ingested documents, so the pipeline is working end to end.
+
+---
+
+## Logstash — running
+![Logstash running](logstash-running.png)
+> `systemctl status logstash` — active (running); the Beats input listener is up.
+
+---
+
+## Kibana — running
+![Kibana running](kibana-running.png)
+> `systemctl status kibana` — active (running), enabled on boot.
+
+---
+
+## Log events in Discover
 ![Kibana Discover](kibana-discover.png)
-> Kibana home page — confirming successful connection to Elasticsearch at port 5601.
+> Kibana Discover on the `filebeat-*` index pattern: 3,366 events over 15 minutes, flowing from Filebeat through Logstash into Elasticsearch, with parsed `system.auth` and `system.syslog` fields.
 
 ---
 
-## Elasticsearch — Running
-![Elasticsearch Running](elasticsearch-running.png)
-> `systemctl status elasticsearch` — active (running), enabled on boot. Using 2.9GB RAM, confirming a healthy production-style deployment.
+## Filebeat — running in the VM
+![Filebeat in VM](filebeat-running-vm.png)
+> Filebeat service status confirmed in the Ubuntu VM terminal.
 
 ---
 
-## Elasticsearch — Indices Confirmed
-![Elasticsearch Indices](elasticsearch-indices.png)
-> `curl localhost:9200/_cat/indices?v` — confirms Filebeat index exists with 11,721 documents ingested. Pipeline is working end-to-end.
-
----
-
-## Logstash — Running
-![Logstash Running](logstash-running.png)
-> `systemctl status logstash` — active (running). Logs confirm Beats input listener started and pipeline is live.
-
----
-
-## Kibana — Running
-![Kibana Running](kibana-running.png)
-> `systemctl status kibana` — active (running), enabled on boot. Accessible at port 5601.
-
----
-
-## Log Events
-![Filebeat Running](filebeat-running.png)
-> Kibana Discover showing 3,366 hits — real-time log events flowing from Filebeat through Logstash into Elasticsearch. Index pattern: `filebeat-*`.
-
----
-
-## Filebeat — Running in VM
-![Filebeat VM](filebeat-running-vm.png)
-> Filebeat status confirmed inside the Ubuntu VM terminal.
-
----
-
-## SSH — Running
-![SSH Status](ssh-status.png)
-> `systemctl status ssh` — OpenSSH server active, listening on port 22. Remote access to the SIEM box is enabled.
+## SSH — running
+![SSH status](ssh-status.png)
+> `systemctl status ssh` — OpenSSH active on port 22 (UFW limits it to the host machine's IP).

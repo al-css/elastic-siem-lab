@@ -2,6 +2,12 @@
 # File: /etc/filebeat/filebeat.yml
 #
 # Ships system logs (syslog, auth.log) to Logstash.
+#
+# Filebeat cannot load its ingest pipelines or index template through
+# Logstash. Run this once, pointing Filebeat straight at Elasticsearch
+# (full command in docs/INSTALL.md, Step 5):
+#   sudo filebeat setup --pipelines --modules system --index-management \
+#     -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]' ...
 
 filebeat.inputs:
   - type: filestream
